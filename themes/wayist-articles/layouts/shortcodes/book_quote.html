@@ -1,0 +1,109 @@
+{{/*
+Usage: {{< book_quote book="theWAY Primary Teaching" author="Salvar Dàosenglu" link="https://wayism.net/theway-primary-teaching/" >}}
+Your quote text here
+{{< /book_quote >}}
+*/}}
+
+{{ $book := .Get "book" }}
+{{ $author := .Get "author" }}
+{{ $link := .Get "link" }}
+{{ $page := .Get "page" }}
+
+<div class="book-quote-callout">
+    <div class="quote-header">
+        <span class="quote-icon">📖</span>
+        <span class="quote-label">From the Teaching</span>
+    </div>
+    
+    <blockquote class="wayist-quote">
+        {{ .Inner | markdownify }}
+        
+        <footer class="quote-footer">
+            <cite>
+                — {{ $book }}{{ if $author }}, {{ $author }}{{ end }}{{ if $page }} (p. {{ $page }}){{ end }}
+            </cite>
+            {{ if $link }}
+                <div class="book-link">
+                    <a href="{{ $link }}" target="_blank" rel="noopener">
+                        Read {{ $book }} →
+                    </a>
+                </div>
+            {{ end }}
+        </footer>
+    </blockquote>
+</div>
+
+<style>
+.book-quote-callout {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #F8F9FA;
+    border-left: 4px solid #A68B5B;
+    border-radius: 0.375rem;
+}
+
+.quote-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2C5F7C;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.quote-icon {
+    font-size: 1.2rem;
+}
+
+.wayist-quote {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.wayist-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: #A68B5B;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-family: Georgia, serif;
+    opacity: 0.3;
+}
+
+.quote-footer {
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.quote-footer cite {
+    color: #666;
+    font-style: italic;
+}
+
+.book-link {
+    margin-top: 0.5rem;
+}
+
+.book-link a {
+    color: #2C5F7C;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.book-link a:hover {
+    border-bottom-color: #2C5F7C;
+}
+</style>

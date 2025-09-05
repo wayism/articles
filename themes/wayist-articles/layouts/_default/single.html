@@ -1,0 +1,173 @@
+{{ define "main" }}
+<article class="article">
+    <header class="article-header">
+        <h1 class="article-title">{{ .Title }}</h1>
+        
+        {{ if .Description }}
+            <p class="article-excerpt">{{ .Description }}</p>
+        {{ end }}
+        
+        <div class="article-meta">
+            {{ if .Date }}
+            <div class="article-meta-item">
+                <span class="article-meta-icon">📅</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+            </div>
+            {{ end }}
+            
+            {{ with .Params.author }}
+            <div class="article-meta-item">
+                <span class="article-meta-icon">✍️</span>
+                <span>{{ . }}</span>
+            </div>
+            {{ end }}
+            
+            {{ if .Site.Params.reading_time }}
+            <div class="article-meta-item">
+                <span class="article-meta-icon">⏱️</span>
+                <span>{{ .ReadingTime }} min read</span>
+            </div>
+            {{ end }}
+            
+            {{ with .Params.book_reference }}
+            <div class="article-meta-item">
+                <span class="article-meta-icon">📖</span>
+                <span>From: <em>{{ . }}</em></span>
+            </div>
+            {{ end }}
+        </div>
+        
+        {{ if .Params.categories }}
+        <div class="article-categories">
+            <span class="taxonomy-label">Categories:</span>
+            <ul class="taxonomy-list">
+                {{ range .Params.categories }}
+                <li class="taxonomy-item">
+                    <a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+    </header>
+    
+    <div class="article-content">
+        {{ .Content }}
+        
+        {{/* Book Quote Callout */}}
+        {{ with .Params.book_quote }}
+        <div class="book-quote-section">
+            <h3>From the Teaching</h3>
+            <blockquote>
+                {{ .quote | markdownify }}
+                <cite>— {{ .book }}, {{ with .author }}{{ . }}{{ end }}</cite>
+            </blockquote>
+            {{ if .book_link }}
+                <p><a href="{{ .book_link }}" target="_blank" rel="noopener">Read more in {{ .book }} →</a></p>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        {{/* Community Invitation */}}
+        <div class="cta-box">
+            <h3>Continue Your Journey</h3>
+            <p>Join our online community for deeper discussions, courses, and connection with fellow seekers on the Way.</p>
+            <a href="{{ .Site.Params.community_site }}" class="cta-button" target="_blank" rel="noopener">
+                Join Wayist.Life Community
+            </a>
+        </div>
+        
+        {{/* Main Site Reference */}}
+        <div class="wayism-reference">
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
+                Explore more teachings and resources at 
+                <a href="{{ .Site.Params.main_site }}" target="_blank" rel="noopener">Wayism.org</a>
+            </p>
+        </div>
+    </div>
+    
+    <footer class="article-footer">
+        {{ if .Params.tags }}
+        <div class="article-tags">
+            <span class="taxonomy-label">Tags:</span>
+            <ul class="taxonomy-list">
+                {{ range .Params.tags }}
+                <li class="taxonomy-item">
+                    <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+        
+        {{/* Related Articles */}}
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ if $related }}
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <ul>
+                {{ range $related }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <p class="related-excerpt">{{ .Summary | truncate 100 }}</p>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+        
+        {{/* Social Sharing */}}
+        <div class="article-sharing">
+            <h4>Share this article</h4>
+            <div class="sharing-buttons">
+                <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" 
+                   target="_blank" rel="noopener" class="share-button twitter">
+                   Twitter
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" 
+                   target="_blank" rel="noopener" class="share-button facebook">
+                   Facebook
+                </a>
+                <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" 
+                   class="share-button email">
+                   Email
+                </a>
+            </div>
+        </div>
+    </footer>
+</article>
+
+{{/* Structured Data for SEO */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ .Params.author | default .Site.Params.author }}"
+    },
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ .Permalink }}"
+    },
+    {{ if .Params.book_reference }}
+    "isBasedOn": {
+        "@type": "Book",
+        "name": "{{ .Params.book_reference }}"
+    },
+    {{ end }}
+    "keywords": "{{ delimit .Params.tags ", " }}"
+}
+</script>
+{{ end }}

@@ -1,0 +1,13 @@
+name: 'Wayist Articles'
+license: 'MIT'
+licenselink: 'https://github.com/wayism/articles/blob/main/LICENSE'
+description: 'Clean, content-focused Hugo theme for Wayist articles'
+homepage: 'https://wayist.org'
+demosite: 'https://wayist.org'
+tags: ['blog', 'articles', 'spirituality', 'philosophy', 'clean', 'minimal']
+features: ['responsive', 'multilingual', 'seo-optimized', 'fast']
+min_version: '0.115.0'
+
+author:
+  name: 'Wayist Teachers'
+  homepage: 'https://wayism.org'

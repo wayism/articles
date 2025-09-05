@@ -1,0 +1,93 @@
+{{ define "main" }}
+<div class="page-header">
+    <h1 class="page-title">
+        {{ if eq .Section "categories" }}
+            Category: {{ .Title }}
+        {{ else if eq .Section "tags" }}
+            Tag: {{ .Title }}
+        {{ else }}
+            {{ .Title }}
+        {{ end }}
+    </h1>
+    
+    {{ if .Description }}
+        <p class="page-description">{{ .Description }}</p>
+    {{ end }}
+    
+    {{ if .Content }}
+        <div class="page-content">
+            {{ .Content }}
+        </div>
+    {{ end }}
+</div>
+
+{{ if .Data.Pages }}
+    <div class="articles-grid">
+        {{ range .Paginate .Data.Pages }}
+            <article class="article-summary">
+                <header class="article-summary-header">
+                    <h2 class="article-summary-title">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+                    
+                    <div class="article-meta">
+                        {{ if .Date }}
+                        <div class="article-meta-item">
+                            <span class="article-meta-icon">📅</span>
+                            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format "January 2, 2006" }}
+                            </time>
+                        </div>
+                        {{ end }}
+                        
+                        {{ with .Params.author }}
+                        <div class="article-meta-item">
+                            <span class="article-meta-icon">✍️</span>
+                            <span>{{ . }}</span>
+                        </div>
+                        {{ end }}
+                        
+                        {{ if .Site.Params.reading_time }}
+                        <div class="article-meta-item">
+                            <span class="article-meta-icon">⏱️</span>
+                            <span>{{ .ReadingTime }} min</span>
+                        </div>
+                        {{ end }}
+                    </div>
+                </header>
+                
+                <div class="article-summary-content">
+                    {{ if .Description }}
+                        <p class="article-summary-excerpt">{{ .Description }}</p>
+                    {{ else }}
+                        <p class="article-summary-excerpt">{{ .Summary | truncate 200 }}</p>
+                    {{ end }}
+                    
+                    {{ if .Params.categories }}
+                    <div class="article-categories">
+                        <ul class="taxonomy-list">
+                            {{ range first 3 .Params.categories }}
+                            <li class="taxonomy-item">
+                                <a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    
+                    <a href="{{ .Permalink }}" class="read-more">
+                        Read full article →
+                    </a>
+                </div>
+            </article>
+        {{ end }}
+    </div>
+    
+    {{ template "_internal/pagination.html" . }}
+{{ else }}
+    <div class="no-content">
+        <p>No articles found in this section yet. Check back soon for new content!</p>
+        <p><a href="{{ "/" | absLangURL }}">← Return to home page</a></p>
+    </div>
+{{ end }}
+{{ end }}

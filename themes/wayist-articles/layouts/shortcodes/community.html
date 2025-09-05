@@ -1,0 +1,57 @@
+{{/*
+Usage: {{< community title="Join Us" text="Custom text here" >}}
+*/}}
+
+{{ $title := .Get "title" | default "Join the Community" }}
+{{ $text := .Get "text" | default "Connect with fellow seekers, access exclusive content, and deepen your understanding of the Way." }}
+{{ $button_text := .Get "button" | default "Join Wayist.Life" }}
+
+<div class="community-invite">
+    <div class="invite-content">
+        <h3>{{ $title }}</h3>
+        <p>{{ $text | markdownify }}</p>
+        <a href="{{ $.Site.Params.community_site }}" 
+           class="cta-button" 
+           target="_blank" 
+           rel="noopener">
+            {{ $button_text }}
+        </a>
+    </div>
+</div>
+
+<style>
+.community-invite {
+    background: linear-gradient(135deg, #2C5F7C, #6B8E6B);
+    color: white;
+    padding: 2rem;
+    border-radius: 0.375rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.community-invite h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.community-invite p {
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.community-invite .cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #2C5F7C;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.community-invite .cta-button:hover {
+    transform: translateY(-2px);
+    border: none;
+}
+</style>

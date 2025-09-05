@@ -1,0 +1,89 @@
+<div class="footer-content">
+    <div class="footer-links">
+        <ul>
+            <li><a href="{{ .Site.Params.main_site }}" target="_blank" rel="noopener">Wayism.org</a></li>
+            <li><a href="{{ .Site.Params.community_site }}" target="_blank" rel="noopener">Community</a></li>
+            <li><a href="https://wayism.net" target="_blank" rel="noopener">Books</a></li>
+            <li><a href="{{ "/about/" | absLangURL }}">About</a></li>
+            <li><a href="{{ "/categories/" | absLangURL }}">Categories</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-text">
+        <p>&copy; {{ now.Year }} Wayist Articles. Wisdom for the Journey.</p>
+        <p>
+            Explore comprehensive teachings at 
+            <a href="{{ .Site.Params.main_site }}" target="_blank" rel="noopener">Wayism.org</a>
+            • Join our community at 
+            <a href="{{ .Site.Params.community_site }}" target="_blank" rel="noopener">Wayist.Life</a>
+        </p>
+    </div>
+    
+    {{ if .Site.IsMultiLingual }}
+    <div class="footer-languages">
+        <p>Available in:</p>
+        <ul>
+            {{ range .Site.Languages }}
+            <li>
+                <a href="{{ .BaseURL }}" 
+                   {{ if eq $.Site.Language.Lang .Lang }}class="current-lang"{{ end }}>
+                    {{ .LanguageName }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+</div>
+
+<style>
+.footer-links ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.footer-text p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-languages {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-languages ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.footer-languages .current-lang {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .footer-links ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .footer-languages ul {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+</style>

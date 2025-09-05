@@ -1,0 +1,262 @@
+{{ define "main" }}
+<div class="home-intro">
+    <h1 class="home-title">Welcome to Wayist Articles</h1>
+    <p class="home-description">
+        A collection of wisdom, insights, and guidance for the spiritual journey. 
+        Explore articles on Wayist philosophy, practices, and the timeless teachings 
+        that illuminate the path of conscious living.
+    </p>
+</div>
+
+{{/* Featured Articles */}}
+{{ $featured := where .Site.RegularPages "Params.featured" true }}
+{{ if $featured }}
+<section class="featured-articles">
+    <h2 class="section-title">Featured Articles</h2>
+    <div class="featured-grid">
+        {{ range first 3 $featured }}
+        <article class="featured-article">
+            <h3 class="featured-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+            <p class="featured-excerpt">{{ .Description | default (.Summary | truncate 150) }}</p>
+            <div class="featured-meta">
+                {{ with .Params.book_reference }}
+                    <span class="book-ref">From: {{ . }}</span>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+{{/* Recent Articles */}}
+<section class="recent-articles">
+    <h2 class="section-title">Recent Articles</h2>
+    <div class="articles-grid">
+        {{ range first 6 (where .Site.RegularPages "Section" "articles") }}
+        <article class="article-summary">
+            <header class="article-summary-header">
+                <h3 class="article-summary-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h3>
+                
+                <div class="article-meta">
+                    <div class="article-meta-item">
+                        <span class="article-meta-icon">📅</span>
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">
+                            {{ .Date.Format "January 2, 2006" }}
+                        </time>
+                    </div>
+                    
+                    {{ if .Site.Params.reading_time }}
+                    <div class="article-meta-item">
+                        <span class="article-meta-icon">⏱️</span>
+                        <span>{{ .ReadingTime }} min</span>
+                    </div>
+                    {{ end }}
+                </div>
+            </header>
+            
+            <div class="article-summary-content">
+                <p class="article-summary-excerpt">
+                    {{ .Description | default (.Summary | truncate 200) }}
+                </p>
+                
+                {{ if .Params.categories }}
+                <div class="article-categories">
+                    <ul class="taxonomy-list">
+                        {{ range first 2 .Params.categories }}
+                        <li class="taxonomy-item">
+                            <a href="{{ "/categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+                
+                <a href="{{ .Permalink }}" class="read-more">
+                    Read article →
+                </a>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+    
+    <div class="view-all">
+        <a href="{{ "/articles/" | absLangURL }}" class="view-all-button">
+            View All Articles →
+        </a>
+    </div>
+</section>
+
+{{/* Categories Overview */}}
+<section class="categories-overview">
+    <h2 class="section-title">Explore by Category</h2>
+    <div class="categories-grid">
+        {{ range first 8 .Site.Taxonomies.categories.ByCount }}
+        <div class="category-card">
+            <h4 class="category-title">
+                <a href="{{ "/categories/" | absLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>
+            </h4>
+            <span class="category-count">{{ .Count }} articles</span>
+        </div>
+        {{ end }}
+    </div>
+    
+    <div class="view-all">
+        <a href="{{ "/categories/" | absLangURL }}" class="view-all-button">
+            View All Categories →
+        </a>
+    </div>
+</section>
+
+{{/* Community Call-to-Action */}}
+<section class="home-cta">
+    <div class="cta-box">
+        <h2>Join Our Community</h2>
+        <p>
+            Connect with fellow seekers, access exclusive content, and deepen your 
+            understanding of Wayist teachings through our online community.
+        </p>
+        <a href="{{ .Site.Params.community_site }}" 
+           class="cta-button" 
+           target="_blank" 
+           rel="noopener">
+            Join Wayist.Life Community
+        </a>
+    </div>
+</section>
+
+{{/* Additional CSS for home page */}}
+<style>
+.home-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.home-title {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.home-description {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.featured-article {
+    background-color: var(--color-background-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-secondary);
+}
+
+.featured-title a {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.featured-excerpt {
+    margin: 1rem 0;
+    color: var(--color-text-light);
+}
+
+.book-ref {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-card {
+    background-color: var(--color-background-light);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.category-title a {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.category-count {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.view-all {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.view-all-button {
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.view-all-button:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.home-cta {
+    margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2rem;
+    }
+    
+    .home-description {
+        font-size: 1.125rem;
+    }
+    
+    .featured-grid,
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{{ end }}

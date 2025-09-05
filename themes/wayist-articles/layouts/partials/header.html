@@ -1,0 +1,40 @@
+<div class="header-content">
+    <div class="site-branding">
+        <h1 class="site-title">
+            <a href="{{ "/" | absLangURL }}">
+                <span class="site-title-icon">📚</span>
+                {{ .Site.Title }}
+            </a>
+        </h1>
+        {{ with .Site.Params.description }}
+            <p class="site-tagline">{{ . }}</p>
+        {{ end }}
+    </div>
+    
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+            {{ range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL | absLangURL }}" 
+                       {{ if .Page }}class="active"{{ end }}
+                       {{ if strings.HasPrefix .URL "http" }}target="_blank" rel="noopener"{{ end }}>
+                        {{ .Name }}
+                        {{ if strings.HasPrefix .URL "http" }}<span class="external-link">↗</span>{{ end }}
+                    </a>
+                </li>
+            {{ end }}
+        </ul>
+    </nav>
+    
+    {{ if .Site.IsMultiLingual }}
+    <div class="language-selector">
+        <select onchange="window.location.href=this.value" aria-label="Select Language">
+            {{ range .Site.Languages }}
+                <option value="{{ .BaseURL }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>
+                    {{ .LanguageName }}
+                </option>
+            {{ end }}
+        </select>
+    </div>
+    {{ end }}
+</div>
