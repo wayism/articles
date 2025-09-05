@@ -7,7 +7,7 @@ draft: false
 # SEO
 keywords: ["wayist articles", "spiritual wisdom", "wayist teaching", "philosophy", "personal transformation", "ancient wisdom"]
 ---
-
+{{< logo >}}
 # Welcome to Wayist Articles
 
 A sanctuary of wisdom for seekers on the path of conscious living. Here you'll discover authentic teachings from the ancient Wayist tradition, practical guidance for spiritual development, and insights that bridge timeless wisdom with contemporary life.
