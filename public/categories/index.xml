@@ -2,115 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Wayist Articles - Wisdom for the Journey</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://wayist.org/categories/</link>
     <description>Recent content in Categories on Wayist Articles - Wisdom for the Journey</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://wayist.org/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>http://localhost:1313/categories/about/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/about/</guid>
+      <title>Comprendiendo La Vida</title>
+      <link>https://wayist.org/categories/comprendiendo-la-vida/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/comprendiendo-la-vida/</guid>
       <description></description>
     </item>
     <item>
-      <title>Comparative Philosophy</title>
-      <link>http://localhost:1313/categories/comparative-philosophy/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/comparative-philosophy/</guid>
+      <title>Das Leben Verstehen</title>
+      <link>https://wayist.org/categories/das-leben-verstehen/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/das-leben-verstehen/</guid>
       <description></description>
     </item>
     <item>
       <title>Filosofía</title>
-      <link>http://localhost:1313/categories/filosof%C3%ADa/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/filosof%C3%ADa/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Leben Verstehen</title>
-      <link>http://localhost:1313/categories/leben-verstehen/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/leben-verstehen/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Personal Transformation</title>
-      <link>http://localhost:1313/categories/personal-transformation/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/personal-transformation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Persönliche Transformation</title>
-      <link>http://localhost:1313/categories/pers%C3%B6nliche-transformation/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/pers%C3%B6nliche-transformation/</guid>
+      <link>https://wayist.org/categories/filosof%C3%ADa/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/filosof%C3%ADa/</guid>
       <description></description>
     </item>
     <item>
       <title>Philosophie</title>
-      <link>http://localhost:1313/categories/philosophie/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/philosophie/</guid>
+      <link>https://wayist.org/categories/philosophie/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/philosophie/</guid>
       <description></description>
     </item>
     <item>
       <title>Philosophy</title>
-      <link>http://localhost:1313/categories/philosophy/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/philosophy/</guid>
+      <link>https://wayist.org/categories/philosophy/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/philosophy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Poesía Y Reflexión</title>
+      <link>https://wayist.org/categories/poes%C3%ADa-y-reflexi%C3%B3n/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/poes%C3%ADa-y-reflexi%C3%B3n/</guid>
       <description></description>
     </item>
     <item>
       <title>Poesie &amp; Reflexion</title>
-      <link>http://localhost:1313/categories/poesie--reflexion/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/poesie--reflexion/</guid>
+      <link>https://wayist.org/categories/poesie--reflexion/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/poesie--reflexion/</guid>
       <description></description>
     </item>
     <item>
       <title>Poetry &amp; Reflection</title>
-      <link>http://localhost:1313/categories/poetry--reflection/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/poetry--reflection/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Práctica Espiritual</title>
-      <link>http://localhost:1313/categories/pr%C3%A1ctica-espiritual/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/pr%C3%A1ctica-espiritual/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Spiritual Practice</title>
-      <link>http://localhost:1313/categories/spiritual-practice/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/spiritual-practice/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Spirituelle Praxis</title>
-      <link>http://localhost:1313/categories/spirituelle-praxis/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/spirituelle-praxis/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Transformación Personal</title>
-      <link>http://localhost:1313/categories/transformaci%C3%B3n-personal/</link>
-      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/transformaci%C3%B3n-personal/</guid>
+      <link>https://wayist.org/categories/poetry--reflection/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/poetry--reflection/</guid>
       <description></description>
     </item>
     <item>
       <title>Understanding Life</title>
-      <link>http://localhost:1313/categories/understanding-life/</link>
+      <link>https://wayist.org/categories/understanding-life/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/understanding-life/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://wayist.org/categories/about/</link>
       <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/understanding-life/</guid>
+      <guid>https://wayist.org/categories/about/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comparative Philosophy</title>
+      <link>https://wayist.org/categories/comparative-philosophy/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/comparative-philosophy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Inner Work</title>
+      <link>https://wayist.org/categories/inner-work/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/inner-work/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Leben Verstehen</title>
+      <link>https://wayist.org/categories/leben-verstehen/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/leben-verstehen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Meditation</title>
+      <link>https://wayist.org/categories/meditation/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/meditation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal Transformation</title>
+      <link>https://wayist.org/categories/personal-transformation/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/personal-transformation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Persönliche Transformation</title>
+      <link>https://wayist.org/categories/pers%C3%B6nliche-transformation/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/pers%C3%B6nliche-transformation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Práctica Espiritual</title>
+      <link>https://wayist.org/categories/pr%C3%A1ctica-espiritual/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/pr%C3%A1ctica-espiritual/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spiritual Practice</title>
+      <link>https://wayist.org/categories/spiritual-practice/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/spiritual-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spirituelle Praxis</title>
+      <link>https://wayist.org/categories/spirituelle-praxis/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/spirituelle-praxis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformación Personal</title>
+      <link>https://wayist.org/categories/transformaci%C3%B3n-personal/</link>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://wayist.org/categories/transformaci%C3%B3n-personal/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on Artículos Wayist - Sabiduría para el Camino</title>
-    <link>http://localhost:1313/es/topics/</link>
+    <link>https://wayist.org/es/topics/</link>
     <description>Recent content in Topics on Artículos Wayist - Sabiduría para el Camino</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <atom:link href="http://localhost:1313/es/topics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wayist.org/es/topics/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

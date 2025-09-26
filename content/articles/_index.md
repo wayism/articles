@@ -1,16 +1,22 @@
 ---
-title: "Articles"
+title: "Wayism Articles"
 description: "Explore our complete collection of Wayist teachings, spiritual practices, and philosophical insights for the modern seeker."
 date: 2024-09-04
 draft: false
 
 # SEO
-keywords: ["wayist articles", "spiritual teachings", "wayist philosophy", "meditation", "personal development", "consciousness"]
+keywords: ["wayist articles", "wayism spiritual teachings", "wayist philosophy", "meditation", "personal development", "consciousness"]
 ---
 
-# Wayist Articles Collection
+# Articles in Spanish, German, and English
+
+**Explore our complete collection of Wayist teachings, spiritual practices, and philosophical insights for the modern seeker.**
 
 This collection represents authentic teachings from the ancient Wayist tradition, carefully crafted for contemporary seekers who yearn for genuine spiritual wisdom. Each article draws from the profound well of Wayist knowledge while addressing the practical realities of modern life.
+
+Our main teaching repository website is : Wayism.Org
+Our online community is: Wayist.Life
+
 
 ## Our Approach to Spiritual Teaching
 

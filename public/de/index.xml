@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wayist Artikel - Weisheit für die Reise</title>
-    <link>http://localhost:1313/de/</link>
+    <link>https://wayist.org/de/</link>
     <description>Recent content on Wayist Artikel - Weisheit für die Reise</description>
     <generator>Hugo</generator>
     <language>de</language>
-    <atom:link href="http://localhost:1313/de/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wayist.org/de/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
