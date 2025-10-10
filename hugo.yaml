@@ -1,94 +1,53 @@
-baseURL: 'https://wayist.org'
+baseURL: 'https://wayist.org' # wayism.github.io/articles
 languageCode: 'en-us'
 title: 'Wayist Articles - Wisdom for the Journey'
-theme: 'wayist-articles'
 
-# Enable multi-language support
+# Fix the default content language
 defaultContentLanguage: 'en'
-defaultContentLanguageInSubdir: false
-
-languages:
-  en:
-    languageName: 'English'
-    title: 'Wayist Articles - Wisdom for the Journey'
-    weight: 1
-    params:
-      description: 'Insightful articles on Wayist spirituality, philosophy, and personal transformation'
-  es:
-    languageName: 'Español'
-    title: 'Artículos Wayist - Sabiduría para el Camino'
-    weight: 2
-    params:
-      description: 'Artículos perspicaces sobre espiritualidad, filosofía y transformación personal Wayist'
-  de:
-    languageName: 'Deutsch'
-    title: 'Wayist Artikel - Weisheit für die Reise'
-    weight: 3
-    params:
-      description: 'Aufschlussreiche Artikel über Wayist-Spiritualität, Philosophie und persönliche Transformation'
-
-# Permalinks structure for SEO
-permalinks:
-  articles: '/:section/:slug/'
-  posts: '/:year/:month/:slug/'
 
 # Site parameters
 params:
   description: 'A collection of articles on Wayist spirituality, philosophy, practice, and wisdom for modern living'
   author: 'Wayist Teachers'
-  
-  # Main website references
   main_site: 'https://wayism.org'
   community_site: 'https://wayist.life'
-  
-  # Social and contact
   email: 'contact@wayist.org'
-  
-  # SEO and Analytics
-  google_analytics: '' # Add your GA4 ID when ready
-  
-  # Article defaults
+  google_analytics: ''
   reading_time: true
   show_author: true
   show_date: true
   show_categories: true
   show_tags: true
-  
-  # Colors matching Wayist.org aesthetic
   colors:
-    primary: '#2C5F7C'    # Deep blue
-    secondary: '#A68B5B'  # Warm gold
-    accent: '#6B8E6B'     # Sage green
-    text: '#333333'       # Dark gray
-    background: '#FFFFFF'  # Pure white
-    light_gray: '#F8F9FA' # Light background
+    primary: '#2C5F7C'
+    secondary: '#A68B5B'
+    accent: '#6B8E6B'
+    text: '#333333'
+    background: '#FFFFFF'
+    light_gray: '#F8F9FA'
 
-# Menu configuration
+# Corrected menu structure for articles subdirectory
 menu:
   main:
-    - name: 'Articles'
+    - name: 'Home'
       url: '/articles/'
-      weight: 10
-    - name: 'Categories'
-      url: '/categories/'
-      weight: 20
+      weight: 1
+    - name: 'All Articles'
+      url: '/articles/articles/'
+      weight: 2
     - name: 'About'
-      url: '/about/'
-      weight: 30
-    - name: 'Wayism.org'
+      url: '/articles/about/'
+      weight: 3
+    - name: 'Main Site'
       url: 'https://wayism.org'
-      weight: 40
-    - name: 'Community'
-      url: 'https://wayist.life'
-      weight: 50
+      weight: 4
 
-# Taxonomy configuration for better organization
+# Taxonomy configuration
 taxonomies:
   category: 'categories'
   tag: 'tags'
   author: 'authors'
   topic: 'topics'
-  book: 'books'
 
 # Content management
 pagination:
@@ -100,28 +59,16 @@ enableEmoji: true
 markup:
   goldmark:
     renderer:
-      unsafe: true # Allows HTML in markdown
+      unsafe: true
   highlight:
     style: 'github'
     lineNos: false
 
-# Output formats for RSS and search
+# Output formats
 outputs:
-  home: ['HTML', 'RSS', 'JSON']
-  section: ['HTML', 'RSS']
-  
-# Related content
-related:
-  includeNewer: true
-  threshold: 80
-  toLower: true
-  indices:
-    - name: 'keywords'
-      weight: 100
-    - name: 'tags'
-      weight: 80
-    - name: 'categories'
-      weight: 60
+  home: ["HTML", "RSS"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]
 
 # Security
 security:

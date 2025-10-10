@@ -1,0 +1,80 @@
+<div class="sidebar-section">
+    <h3 class="sidebar-title">Recent Articles</h3>
+    <ul class="sidebar-list">
+        {{ range first 5 (where .Site.RegularPages "Section" "articles") }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <div class="sidebar-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+<div class="sidebar-section">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-list">
+        {{ range first 10 .Site.Taxonomies.categories.ByCount }}
+        <li>
+            <a href="{{ "/categories/" | absLangURL }}{{ .Name | urlize }}">
+                {{ .Name }} <span class="count">({{ .Count }})</span>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+<div class="sidebar-section">
+    <h3 class="sidebar-title">Wayist Resources</h3>
+    <ul class="sidebar-list">
+        <li><a href="{{ $.Site.Params.main_site }}" target="_blank" rel="noopener">Wayism.org</a></li>
+        <li><a href="{{ $.Site.Params.community_site }}" target="_blank" rel="noopener">Join Community</a></li>
+        <li><a href="https://wayism.net" target="_blank" rel="noopener">Books & Publications</a></li>
+    </ul>
+</div>
+
+<div class="sidebar-section search-section">
+    <h3 class="sidebar-title">Search Articles</h3>
+    <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search articles..." aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Submit search">🔍</button>
+    </form>
+</div>
+
+<style>
+.sidebar-meta {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+.count {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+.search-button {
+    padding: 0.5rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: var(--color-secondary);
+}
+</style>

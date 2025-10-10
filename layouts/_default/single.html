@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article>
+    <div class="content">
+        {{ .Content }}
+    </div>
+    
+    {{ if .Params.date }}
+    <footer class="article-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </footer>
+    {{ end }}
+</article>
+{{ end }}

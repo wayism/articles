@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div class="home-page">
+    <div class="welcome-section">
+        {{ .Content }}
+    </div>
+    
+    <div class="recent-articles">
+        <h2>Recent Articles</h2>
+        {{ $allArticles := where .Site.RegularPages "Section" "articles" }}
+        {{ range first 6 $allArticles }}
+        <div class="article-preview">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <p class="article-summary">{{ .Summary | truncate 150 }}</p>
+            <div class="article-meta">
+                {{ if .Date }}<span class="date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+                {{ if .Params.categories }}<span class="categories">{{ delimit .Params.categories ", " }}</span>{{ end }}
+            </div>
+        </div>
+        {{ end }}
+        <div class="view-all">
+            <a href="/articles/articles/" class="button">View All Articles</a>
+        </div>
+    </div>
+    
+    <div class="articles-by-language">
+        <h2>Articles by Language</h2>
+        
+        <div class="language-sections">
+            <div class="language-section">
+                <h3>English Articles</h3>
+                {{ $enArticles := slice }}
+                {{ range $allArticles }}
+                    {{ if or (strings.Contains .File.Dir "articles/en/") (not (or (strings.Contains .File.Dir "/es/") (strings.Contains .File.Dir "/de/"))) }}
+                        {{ $enArticles = $enArticles | append . }}
+                    {{ end }}
+                {{ end }}
+                <p>{{ len $enArticles }} articles available</p>
+                {{ range first 5 $enArticles }}
+                <div class="article-link">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+            
+            <div class="language-section">
+                <h3>Artículos en Español</h3>
+                {{ $esArticles := slice }}
+                {{ range $allArticles }}
+                    {{ if strings.Contains .File.Dir "/es/" }}
+                        {{ $esArticles = $esArticles | append . }}
+                    {{ end }}
+                {{ end }}
+                <p>{{ len $esArticles }} artículos disponibles</p>
+                {{ range $esArticles }}
+                <div class="article-link">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+            
+            <div class="language-section">
+                <h3>Deutsche Artikel</h3>
+                {{ $deArticles := slice }}
+                {{ range $allArticles }}
+                    {{ if strings.Contains .File.Dir "/de/" }}
+                        {{ $deArticles = $deArticles | append . }}
+                    {{ end }}
+                {{ end }}
+                <p>{{ len $deArticles }} Artikel verfügbar</p>
+                {{ range $deArticles }}
+                <div class="article-link">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,110 @@
+{{/* Structured Data for SEO */}}
+{{ if .IsHome }}
+{{/* Homepage Schema */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Wayist Teachers",
+        "url": "{{ .Site.Params.main_site }}"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ .Site.BaseURL }}/search/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+    }
+}
+</script>
+{{ else if .IsPage }}
+{{/* Article Schema */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "{{ .Params.schema_type | default "Article" }}",
+    "headline": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ .Params.author | default .Site.Params.author }}"
+    },
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ .Permalink }}"
+    }{{ if .Params.book_reference }},
+    "isBasedOn": {
+        "@type": "Book",
+        "name": "{{ .Params.book_reference }}"{{ with .Params.book_author }},
+        "author": {
+            "@type": "Person",
+            "name": "{{ . }}"
+        }{{ end }}
+    }{{ end }}{{ if .Params.tags }},
+    "keywords": "{{ delimit .Params.tags ", " }}"{{ end }}{{ if .Params.categories }},
+    "articleSection": "{{ index .Params.categories 0 }}"{{ end }}
+}
+</script>
+{{ else if .IsSection }}
+{{/* Section/Category Schema */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ .Title }}",
+    "description": "{{ .Description | default .Site.Params.description }}",
+    "url": "{{ .Permalink }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}"
+    }{{ if .Data.Pages }},
+    "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+            {{ range $index, $page := first 20 .Data.Pages }}
+            {{ if gt $index 0 }},{{ end }}
+            {
+                "@type": "ListItem",
+                "position": {{ add $index 1 }},
+                "item": {
+                    "@type": "Article",
+                    "name": "{{ .Title }}",
+                    "url": "{{ .Permalink }}",
+                    "datePublished": "{{ .Date.Format "2006-01-02" }}"
+                }
+            }
+            {{ end }}
+        ]
+    }{{ end }}
+}
+</script>
+{{ end }}
+
+{{/* Organization Schema (on every page) */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Wayist Teachers",
+    "url": "{{ .Site.Params.main_site }}",
+    "sameAs": [
+        "{{ .Site.Params.community_site }}",
+        "https://wayism.net"
+    ],
+    "description": "Teachers and practitioners of the ancient Wayist spiritual tradition"
+}
+</script>

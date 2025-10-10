@@ -1,0 +1,80 @@
+{{ define "main" }}
+<div class="articles-page">
+    <header class="page-header">
+        <h1>{{ .Title | default "Articles" }}</h1>
+        {{ if .Content }}
+        <div class="page-description">
+            {{ .Content }}
+        </div>
+        {{ end }}
+    </header>
+
+    {{/* Get articles for current language */}}
+    {{ $currentLang := .Site.Language.Lang }}
+    {{ $articles := where .Site.RegularPages "Section" "articles" }}
+    {{ $articles = where $articles "Lang" $currentLang }}
+    
+    {{/* Debug info - remove this after testing */}}
+    <div class="debug-info" style="background: #f0f0f0; padding: 1rem; margin: 1rem 0; font-family: monospace;">
+        <strong>Debug Info:</strong><br>
+        Current Language: {{ $currentLang }}<br>
+        Total articles in site: {{ len (where .Site.RegularPages "Section" "articles") }}<br>
+        Articles in {{ $currentLang }}: {{ len $articles }}<br>
+        Page Type: {{ .Type }}<br>
+        Page Kind: {{ .Kind }}<br>
+        Page Section: {{ .Section }}
+    </div>
+    
+    {{ if $articles }}
+    <div class="articles-grid">
+        {{ range $articles.ByDate.Reverse }}
+        <article class="article-card">
+            <header class="article-header">
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                {{ if .Date }}
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+                {{ end }}
+            </header>
+            
+            {{ if .Summary }}
+            <div class="article-excerpt">
+                {{ .Summary }}
+            </div>
+            {{ end }}
+            
+            <footer class="article-footer">
+                <a href="{{ .Permalink }}" class="read-more">Read More →</a>
+            </footer>
+        </article>
+        {{ end }}
+    </div>
+    {{ else }}
+    <div class="no-content">
+        <h2>
+            {{ if eq $currentLang "es" }}
+                Artículos próximamente
+            {{ else if eq $currentLang "de" }}
+                Artikel kommen bald
+            {{ else }}
+                No articles found
+            {{ end }}
+        </h2>
+        <p>
+            {{ if eq $currentLang "es" }}
+                Los artículos en español están en desarrollo.
+            {{ else if eq $currentLang "de" }}
+                Deutsche Artikel sind in Entwicklung.
+            {{ else }}
+                Articles are being prepared.
+            {{ end }}
+        </p>
+        
+        {{ if ne $currentLang "en" }}
+        <p><a href="{{ "/articles/" | absLangURL }}">→ View English articles</a></p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="articles-page">
+    <header class="page-header">
+        <h1>{{ .Title | default "All Articles" }}</h1>
+        <p>Complete collection of Wayist teachings and wisdom</p>
+    </header>
+
+    {{ $allArticles := where .Site.RegularPages "Section" "articles" }}
+    
+    <div class="articles-grid">
+        {{ range $allArticles.ByDate.Reverse }}
+        <article class="article-card">
+            <header>
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                {{ if .Date }}
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                {{ end }}
+            </header>
+            
+            {{ if .Description }}
+            <p class="article-description">{{ .Description }}</p>
+            {{ else if .Summary }}
+            <p class="article-summary">{{ .Summary | truncate 150 }}</p>
+            {{ end }}
+            
+            {{ if .Params.categories }}
+            <footer class="article-categories">
+                {{ range .Params.categories }}
+                <span class="category">{{ . }}</span>
+                {{ end }}
+            </footer>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
