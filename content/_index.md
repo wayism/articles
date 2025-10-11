@@ -5,8 +5,6 @@ date: 2025-01-26
 layout: "home"
 ---
 
-# Welcome to Wayist Articles
-
 A sanctuary of wisdom for seekers on the path of conscious living. Here you'll discover authentic teachings from the ancient Wayist tradition, practical guidance for spiritual development, and insights that bridge timeless wisdom with contemporary life.
 
 ## What You'll Find Here

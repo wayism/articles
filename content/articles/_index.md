@@ -8,7 +8,7 @@ draft: false
 keywords: ["wayist articles", "wayism spiritual teachings", "wayist philosophy", "meditation", "personal development", "consciousness"]
 ---
 
-# Articles in Spanish, German, and English
+## Articles in Spanish, German, and English
 
 **Explore our complete collection of Wayist teachings, spiritual practices, and philosophical insights for the modern seeker.**
 

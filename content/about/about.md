@@ -4,8 +4,6 @@ description: "Learn about our mission to share authentic Wayist wisdom for moder
 date: 2025-01-26
 ---
 
-# About Wayist Articles
-
 Welcome to our collection of wisdom teachings from the ancient Wayist tradition. This resource serves seekers, students, and anyone drawn to authentic spiritual development and conscious living.
 
 ## Our Mission

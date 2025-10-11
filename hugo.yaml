@@ -30,13 +30,13 @@ params:
 menu:
   main:
     - name: 'Home'
-      url: '/articles/'
+      url: '/'
       weight: 1
     - name: 'All Articles'
-      url: '/articles/articles/'
+      url: '/articles/'
       weight: 2
     - name: 'About'
-      url: '/articles/about/'
+      url: '/about/'
       weight: 3
     - name: 'Main Site'
       url: 'https://wayism.org'

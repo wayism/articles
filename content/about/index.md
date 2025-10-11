@@ -3,8 +3,6 @@ title: "About Wayist Articles"
 description: "Learn more about Wayist teachings and philosophy"
 ---
 
-# About Wayist Articles
-
 Welcome to our collection of wisdom teachings from the ancient Wayist tradition. This resource serves seekers, students, and anyone drawn to authentic spiritual development and conscious living.
 
 ## Our Mission
